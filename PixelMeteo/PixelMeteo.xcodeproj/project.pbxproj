@@ -7,63 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		117E3D282BC6DE0C001ED05A /* PixelMeteoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D272BC6DE0C001ED05A /* PixelMeteoApp.swift */; };
-		117E3D2A2BC6DE0C001ED05A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D292BC6DE0C001ED05A /* ContentView.swift */; };
-		117E3D2C2BC6DE0C001ED05A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D2B2BC6DE0C001ED05A /* Item.swift */; };
-		117E3D2E2BC6DE0E001ED05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D2D2BC6DE0E001ED05A /* Assets.xcassets */; };
-		117E3D312BC6DE0E001ED05A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D302BC6DE0E001ED05A /* Preview Assets.xcassets */; };
-		117E3D3B2BC6DE0E001ED05A /* PixelMeteoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D3A2BC6DE0E001ED05A /* PixelMeteoTests.swift */; };
-		117E3D452BC6DE0E001ED05A /* PixelMeteoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D442BC6DE0E001ED05A /* PixelMeteoUITests.swift */; };
-		117E3D472BC6DE0E001ED05A /* PixelMeteoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D462BC6DE0E001ED05A /* PixelMeteoUITestsLaunchTests.swift */; };
+		117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */; };
+		117E3D622BC6E448001ED05A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D612BC6E448001ED05A /* ContentView.swift */; };
+		117E3D642BC6E449001ED05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D632BC6E449001ED05A /* Assets.xcassets */; };
+		117E3D672BC6E449001ED05A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D662BC6E449001ED05A /* Preview Assets.xcassets */; };
+		117E3D712BC6E449001ED05A /* PixelMeteoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D702BC6E449001ED05A /* PixelMeteoTests.swift */; };
+		117E3D7B2BC6E449001ED05A /* PixelMeteoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */; };
+		117E3D7D2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		117E3D372BC6DE0E001ED05A /* PBXContainerItemProxy */ = {
+		117E3D6D2BC6E449001ED05A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 117E3D1C2BC6DE0C001ED05A /* Project object */;
+			containerPortal = 117E3D542BC6E448001ED05A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 117E3D232BC6DE0C001ED05A;
+			remoteGlobalIDString = 117E3D5B2BC6E448001ED05A;
 			remoteInfo = PixelMeteo;
 		};
-		117E3D412BC6DE0E001ED05A /* PBXContainerItemProxy */ = {
+		117E3D772BC6E449001ED05A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 117E3D1C2BC6DE0C001ED05A /* Project object */;
+			containerPortal = 117E3D542BC6E448001ED05A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 117E3D232BC6DE0C001ED05A;
+			remoteGlobalIDString = 117E3D5B2BC6E448001ED05A;
 			remoteInfo = PixelMeteo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		117E3D242BC6DE0C001ED05A /* PixelMeteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMeteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		117E3D272BC6DE0C001ED05A /* PixelMeteoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoApp.swift; sourceTree = "<group>"; };
-		117E3D292BC6DE0C001ED05A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		117E3D2B2BC6DE0C001ED05A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		117E3D2D2BC6DE0E001ED05A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		117E3D302BC6DE0E001ED05A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		117E3D362BC6DE0E001ED05A /* PixelMeteoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeteoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		117E3D3A2BC6DE0E001ED05A /* PixelMeteoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoTests.swift; sourceTree = "<group>"; };
-		117E3D402BC6DE0E001ED05A /* PixelMeteoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeteoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		117E3D442BC6DE0E001ED05A /* PixelMeteoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITests.swift; sourceTree = "<group>"; };
-		117E3D462BC6DE0E001ED05A /* PixelMeteoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		117E3D5C2BC6E448001ED05A /* PixelMeteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMeteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoApp.swift; sourceTree = "<group>"; };
+		117E3D612BC6E448001ED05A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		117E3D632BC6E449001ED05A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		117E3D662BC6E449001ED05A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		117E3D6C2BC6E449001ED05A /* PixelMeteoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeteoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		117E3D702BC6E449001ED05A /* PixelMeteoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoTests.swift; sourceTree = "<group>"; };
+		117E3D762BC6E449001ED05A /* PixelMeteoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeteoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITests.swift; sourceTree = "<group>"; };
+		117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		117E3D212BC6DE0C001ED05A /* Frameworks */ = {
+		117E3D592BC6E448001ED05A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		117E3D332BC6DE0E001ED05A /* Frameworks */ = {
+		117E3D692BC6E449001ED05A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		117E3D3D2BC6DE0E001ED05A /* Frameworks */ = {
+		117E3D732BC6E449001ED05A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,59 +71,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		117E3D1B2BC6DE0C001ED05A = {
+		117E3D532BC6E448001ED05A = {
 			isa = PBXGroup;
 			children = (
-				117E3D262BC6DE0C001ED05A /* PixelMeteo */,
-				117E3D392BC6DE0E001ED05A /* PixelMeteoTests */,
-				117E3D432BC6DE0E001ED05A /* PixelMeteoUITests */,
-				117E3D252BC6DE0C001ED05A /* Products */,
+				117E3D5E2BC6E448001ED05A /* PixelMeteo */,
+				117E3D6F2BC6E449001ED05A /* PixelMeteoTests */,
+				117E3D792BC6E449001ED05A /* PixelMeteoUITests */,
+				117E3D5D2BC6E448001ED05A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		117E3D252BC6DE0C001ED05A /* Products */ = {
+		117E3D5D2BC6E448001ED05A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				117E3D242BC6DE0C001ED05A /* PixelMeteo.app */,
-				117E3D362BC6DE0E001ED05A /* PixelMeteoTests.xctest */,
-				117E3D402BC6DE0E001ED05A /* PixelMeteoUITests.xctest */,
+				117E3D5C2BC6E448001ED05A /* PixelMeteo.app */,
+				117E3D6C2BC6E449001ED05A /* PixelMeteoTests.xctest */,
+				117E3D762BC6E449001ED05A /* PixelMeteoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		117E3D262BC6DE0C001ED05A /* PixelMeteo */ = {
+		117E3D5E2BC6E448001ED05A /* PixelMeteo */ = {
 			isa = PBXGroup;
 			children = (
-				117E3D272BC6DE0C001ED05A /* PixelMeteoApp.swift */,
-				117E3D292BC6DE0C001ED05A /* ContentView.swift */,
-				117E3D2B2BC6DE0C001ED05A /* Item.swift */,
-				117E3D2D2BC6DE0E001ED05A /* Assets.xcassets */,
-				117E3D2F2BC6DE0E001ED05A /* Preview Content */,
+				117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */,
+				117E3D612BC6E448001ED05A /* ContentView.swift */,
+				117E3D632BC6E449001ED05A /* Assets.xcassets */,
+				117E3D652BC6E449001ED05A /* Preview Content */,
 			);
 			path = PixelMeteo;
 			sourceTree = "<group>";
 		};
-		117E3D2F2BC6DE0E001ED05A /* Preview Content */ = {
+		117E3D652BC6E449001ED05A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				117E3D302BC6DE0E001ED05A /* Preview Assets.xcassets */,
+				117E3D662BC6E449001ED05A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		117E3D392BC6DE0E001ED05A /* PixelMeteoTests */ = {
+		117E3D6F2BC6E449001ED05A /* PixelMeteoTests */ = {
 			isa = PBXGroup;
 			children = (
-				117E3D3A2BC6DE0E001ED05A /* PixelMeteoTests.swift */,
+				117E3D702BC6E449001ED05A /* PixelMeteoTests.swift */,
 			);
 			path = PixelMeteoTests;
 			sourceTree = "<group>";
 		};
-		117E3D432BC6DE0E001ED05A /* PixelMeteoUITests */ = {
+		117E3D792BC6E449001ED05A /* PixelMeteoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				117E3D442BC6DE0E001ED05A /* PixelMeteoUITests.swift */,
-				117E3D462BC6DE0E001ED05A /* PixelMeteoUITestsLaunchTests.swift */,
+				117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */,
+				117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */,
 			);
 			path = PixelMeteoUITests;
 			sourceTree = "<group>";
@@ -133,13 +130,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		117E3D232BC6DE0C001ED05A /* PixelMeteo */ = {
+		117E3D5B2BC6E448001ED05A /* PixelMeteo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 117E3D4A2BC6DE0E001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteo" */;
+			buildConfigurationList = 117E3D802BC6E449001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteo" */;
 			buildPhases = (
-				117E3D202BC6DE0C001ED05A /* Sources */,
-				117E3D212BC6DE0C001ED05A /* Frameworks */,
-				117E3D222BC6DE0C001ED05A /* Resources */,
+				117E3D582BC6E448001ED05A /* Sources */,
+				117E3D592BC6E448001ED05A /* Frameworks */,
+				117E3D5A2BC6E448001ED05A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -147,69 +144,69 @@
 			);
 			name = PixelMeteo;
 			productName = PixelMeteo;
-			productReference = 117E3D242BC6DE0C001ED05A /* PixelMeteo.app */;
+			productReference = 117E3D5C2BC6E448001ED05A /* PixelMeteo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		117E3D352BC6DE0E001ED05A /* PixelMeteoTests */ = {
+		117E3D6B2BC6E449001ED05A /* PixelMeteoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 117E3D4D2BC6DE0E001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoTests" */;
+			buildConfigurationList = 117E3D832BC6E449001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoTests" */;
 			buildPhases = (
-				117E3D322BC6DE0E001ED05A /* Sources */,
-				117E3D332BC6DE0E001ED05A /* Frameworks */,
-				117E3D342BC6DE0E001ED05A /* Resources */,
+				117E3D682BC6E449001ED05A /* Sources */,
+				117E3D692BC6E449001ED05A /* Frameworks */,
+				117E3D6A2BC6E449001ED05A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				117E3D382BC6DE0E001ED05A /* PBXTargetDependency */,
+				117E3D6E2BC6E449001ED05A /* PBXTargetDependency */,
 			);
 			name = PixelMeteoTests;
 			productName = PixelMeteoTests;
-			productReference = 117E3D362BC6DE0E001ED05A /* PixelMeteoTests.xctest */;
+			productReference = 117E3D6C2BC6E449001ED05A /* PixelMeteoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		117E3D3F2BC6DE0E001ED05A /* PixelMeteoUITests */ = {
+		117E3D752BC6E449001ED05A /* PixelMeteoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 117E3D502BC6DE0E001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoUITests" */;
+			buildConfigurationList = 117E3D862BC6E449001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoUITests" */;
 			buildPhases = (
-				117E3D3C2BC6DE0E001ED05A /* Sources */,
-				117E3D3D2BC6DE0E001ED05A /* Frameworks */,
-				117E3D3E2BC6DE0E001ED05A /* Resources */,
+				117E3D722BC6E449001ED05A /* Sources */,
+				117E3D732BC6E449001ED05A /* Frameworks */,
+				117E3D742BC6E449001ED05A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				117E3D422BC6DE0E001ED05A /* PBXTargetDependency */,
+				117E3D782BC6E449001ED05A /* PBXTargetDependency */,
 			);
 			name = PixelMeteoUITests;
 			productName = PixelMeteoUITests;
-			productReference = 117E3D402BC6DE0E001ED05A /* PixelMeteoUITests.xctest */;
+			productReference = 117E3D762BC6E449001ED05A /* PixelMeteoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		117E3D1C2BC6DE0C001ED05A /* Project object */ = {
+		117E3D542BC6E448001ED05A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					117E3D232BC6DE0C001ED05A = {
+					117E3D5B2BC6E448001ED05A = {
 						CreatedOnToolsVersion = 15.3;
 					};
-					117E3D352BC6DE0E001ED05A = {
+					117E3D6B2BC6E449001ED05A = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 117E3D232BC6DE0C001ED05A;
+						TestTargetID = 117E3D5B2BC6E448001ED05A;
 					};
-					117E3D3F2BC6DE0E001ED05A = {
+					117E3D752BC6E449001ED05A = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 117E3D232BC6DE0C001ED05A;
+						TestTargetID = 117E3D5B2BC6E448001ED05A;
 					};
 				};
 			};
-			buildConfigurationList = 117E3D1F2BC6DE0C001ED05A /* Build configuration list for PBXProject "PixelMeteo" */;
+			buildConfigurationList = 117E3D572BC6E448001ED05A /* Build configuration list for PBXProject "PixelMeteo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,36 +214,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 117E3D1B2BC6DE0C001ED05A;
-			productRefGroup = 117E3D252BC6DE0C001ED05A /* Products */;
+			mainGroup = 117E3D532BC6E448001ED05A;
+			productRefGroup = 117E3D5D2BC6E448001ED05A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				117E3D232BC6DE0C001ED05A /* PixelMeteo */,
-				117E3D352BC6DE0E001ED05A /* PixelMeteoTests */,
-				117E3D3F2BC6DE0E001ED05A /* PixelMeteoUITests */,
+				117E3D5B2BC6E448001ED05A /* PixelMeteo */,
+				117E3D6B2BC6E449001ED05A /* PixelMeteoTests */,
+				117E3D752BC6E449001ED05A /* PixelMeteoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		117E3D222BC6DE0C001ED05A /* Resources */ = {
+		117E3D5A2BC6E448001ED05A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				117E3D312BC6DE0E001ED05A /* Preview Assets.xcassets in Resources */,
-				117E3D2E2BC6DE0E001ED05A /* Assets.xcassets in Resources */,
+				117E3D672BC6E449001ED05A /* Preview Assets.xcassets in Resources */,
+				117E3D642BC6E449001ED05A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		117E3D342BC6DE0E001ED05A /* Resources */ = {
+		117E3D6A2BC6E449001ED05A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		117E3D3E2BC6DE0E001ED05A /* Resources */ = {
+		117E3D742BC6E449001ED05A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,50 +253,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		117E3D202BC6DE0C001ED05A /* Sources */ = {
+		117E3D582BC6E448001ED05A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				117E3D2A2BC6DE0C001ED05A /* ContentView.swift in Sources */,
-				117E3D2C2BC6DE0C001ED05A /* Item.swift in Sources */,
-				117E3D282BC6DE0C001ED05A /* PixelMeteoApp.swift in Sources */,
+				117E3D622BC6E448001ED05A /* ContentView.swift in Sources */,
+				117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		117E3D322BC6DE0E001ED05A /* Sources */ = {
+		117E3D682BC6E449001ED05A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				117E3D3B2BC6DE0E001ED05A /* PixelMeteoTests.swift in Sources */,
+				117E3D712BC6E449001ED05A /* PixelMeteoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		117E3D3C2BC6DE0E001ED05A /* Sources */ = {
+		117E3D722BC6E449001ED05A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				117E3D472BC6DE0E001ED05A /* PixelMeteoUITestsLaunchTests.swift in Sources */,
-				117E3D452BC6DE0E001ED05A /* PixelMeteoUITests.swift in Sources */,
+				117E3D7D2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift in Sources */,
+				117E3D7B2BC6E449001ED05A /* PixelMeteoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		117E3D382BC6DE0E001ED05A /* PBXTargetDependency */ = {
+		117E3D6E2BC6E449001ED05A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 117E3D232BC6DE0C001ED05A /* PixelMeteo */;
-			targetProxy = 117E3D372BC6DE0E001ED05A /* PBXContainerItemProxy */;
+			target = 117E3D5B2BC6E448001ED05A /* PixelMeteo */;
+			targetProxy = 117E3D6D2BC6E449001ED05A /* PBXContainerItemProxy */;
 		};
-		117E3D422BC6DE0E001ED05A /* PBXTargetDependency */ = {
+		117E3D782BC6E449001ED05A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 117E3D232BC6DE0C001ED05A /* PixelMeteo */;
-			targetProxy = 117E3D412BC6DE0E001ED05A /* PBXContainerItemProxy */;
+			target = 117E3D5B2BC6E448001ED05A /* PixelMeteo */;
+			targetProxy = 117E3D772BC6E449001ED05A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		117E3D482BC6DE0E001ED05A /* Debug */ = {
+		117E3D7E2BC6E449001ED05A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -362,7 +358,7 @@
 			};
 			name = Debug;
 		};
-		117E3D492BC6DE0E001ED05A /* Release */ = {
+		117E3D7F2BC6E449001ED05A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -418,7 +414,7 @@
 			};
 			name = Release;
 		};
-		117E3D4B2BC6DE0E001ED05A /* Debug */ = {
+		117E3D812BC6E449001ED05A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -447,7 +443,7 @@
 			};
 			name = Debug;
 		};
-		117E3D4C2BC6DE0E001ED05A /* Release */ = {
+		117E3D822BC6E449001ED05A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -476,7 +472,7 @@
 			};
 			name = Release;
 		};
-		117E3D4E2BC6DE0E001ED05A /* Debug */ = {
+		117E3D842BC6E449001ED05A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -496,7 +492,7 @@
 			};
 			name = Debug;
 		};
-		117E3D4F2BC6DE0E001ED05A /* Release */ = {
+		117E3D852BC6E449001ED05A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -516,7 +512,7 @@
 			};
 			name = Release;
 		};
-		117E3D512BC6DE0E001ED05A /* Debug */ = {
+		117E3D872BC6E449001ED05A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -534,7 +530,7 @@
 			};
 			name = Debug;
 		};
-		117E3D522BC6DE0E001ED05A /* Release */ = {
+		117E3D882BC6E449001ED05A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -555,43 +551,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		117E3D1F2BC6DE0C001ED05A /* Build configuration list for PBXProject "PixelMeteo" */ = {
+		117E3D572BC6E448001ED05A /* Build configuration list for PBXProject "PixelMeteo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				117E3D482BC6DE0E001ED05A /* Debug */,
-				117E3D492BC6DE0E001ED05A /* Release */,
+				117E3D7E2BC6E449001ED05A /* Debug */,
+				117E3D7F2BC6E449001ED05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		117E3D4A2BC6DE0E001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteo" */ = {
+		117E3D802BC6E449001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				117E3D4B2BC6DE0E001ED05A /* Debug */,
-				117E3D4C2BC6DE0E001ED05A /* Release */,
+				117E3D812BC6E449001ED05A /* Debug */,
+				117E3D822BC6E449001ED05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		117E3D4D2BC6DE0E001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoTests" */ = {
+		117E3D832BC6E449001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				117E3D4E2BC6DE0E001ED05A /* Debug */,
-				117E3D4F2BC6DE0E001ED05A /* Release */,
+				117E3D842BC6E449001ED05A /* Debug */,
+				117E3D852BC6E449001ED05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		117E3D502BC6DE0E001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoUITests" */ = {
+		117E3D862BC6E449001ED05A /* Build configuration list for PBXNativeTarget "PixelMeteoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				117E3D512BC6DE0E001ED05A /* Debug */,
-				117E3D522BC6DE0E001ED05A /* Release */,
+				117E3D872BC6E449001ED05A /* Debug */,
+				117E3D882BC6E449001ED05A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 117E3D1C2BC6DE0C001ED05A /* Project object */;
+	rootObject = 117E3D542BC6E448001ED05A /* Project object */;
 }
