@@ -49,6 +49,8 @@ struct ContentView: View {
             Text("68")
                 .font(.mainTemperature)
             MainHeader
+        }.task {
+            await weatherViewModel.fetchData()
         }
     }
 }
