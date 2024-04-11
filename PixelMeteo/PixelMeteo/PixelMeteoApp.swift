@@ -11,7 +11,7 @@ import SwiftUI
 struct PixelMeteoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(weatherViewModel: WeatherViewModel())
         }
     }
 }
