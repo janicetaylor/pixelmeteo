@@ -24,10 +24,10 @@ struct ContentView: View {
     var MainHeader: some View {
         VStack {
             HStack {
-                Text("rain: 10%")
-                Text("high: 60")
-                Text("low: 70")
-                Text("feels like: 20")
+                Label("rain: 10%", image: "rain")
+                Label("high: 80", image: "highs")
+                Label("low: 70", image: "lows")
+                Label("feels like: 75", image: "feels-like")
             }
             .frame(maxWidth: .infinity, alignment: .center)
             

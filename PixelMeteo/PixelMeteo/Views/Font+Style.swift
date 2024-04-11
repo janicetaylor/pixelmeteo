@@ -10,5 +10,5 @@ import SwiftUI
 
 extension Font {
     static let sectionHeader: Font = Font.custom("Consolas", size: 12.0)
-    static let mainTemperature: Font = Font.custom("PixelLCD-7", size: 80.0)
+    static let mainTemperature: Font = Font.custom("PixelLCD-7", size: 24.0)
 }
