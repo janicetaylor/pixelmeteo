@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11297B342BC82C0200AC2D17 /* pixel_lcd_7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */; };
+		11297B352BC82C0200AC2D17 /* Consolas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B332BC82C0200AC2D17 /* Consolas.ttf */; };
 		117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */; };
 		117E3D622BC6E448001ED05A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D612BC6E448001ED05A /* ContentView.swift */; };
 		117E3D642BC6E449001ED05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D632BC6E449001ED05A /* Assets.xcassets */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixel_lcd_7.ttf; sourceTree = "<group>"; };
+		11297B332BC82C0200AC2D17 /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
+		11297B362BC82C1400AC2D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		117E3D5C2BC6E448001ED05A /* PixelMeteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMeteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoApp.swift; sourceTree = "<group>"; };
 		117E3D612BC6E448001ED05A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11297B312BC82BC700AC2D17 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				11297B332BC82C0200AC2D17 /* Consolas.ttf */,
+				11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		117E3D532BC6E448001ED05A = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +108,11 @@
 		117E3D5E2BC6E448001ED05A /* PixelMeteo */ = {
 			isa = PBXGroup;
 			children = (
+				11297B362BC82C1400AC2D17 /* Info.plist */,
 				117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */,
 				117E3D612BC6E448001ED05A /* ContentView.swift */,
 				117E3D632BC6E449001ED05A /* Assets.xcassets */,
+				11297B312BC82BC700AC2D17 /* assets */,
 				117E3D652BC6E449001ED05A /* Preview Content */,
 			);
 			path = PixelMeteo;
@@ -231,7 +247,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11297B342BC82C0200AC2D17 /* pixel_lcd_7.ttf in Resources */,
 				117E3D672BC6E449001ED05A /* Preview Assets.xcassets in Resources */,
+				11297B352BC82C0200AC2D17 /* Consolas.ttf in Resources */,
 				117E3D642BC6E449001ED05A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +443,7 @@
 				DEVELOPMENT_TEAM = R82DC4STSC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PixelMeteo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +473,7 @@
 				DEVELOPMENT_TEAM = R82DC4STSC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PixelMeteo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
