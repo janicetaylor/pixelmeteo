@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		11297B342BC82C0200AC2D17 /* pixel_lcd_7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */; };
 		11297B352BC82C0200AC2D17 /* Consolas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B332BC82C0200AC2D17 /* Consolas.ttf */; };
+		11297B382BC8450A00AC2D17 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11297B372BC8450A00AC2D17 /* Weather.swift */; };
+		1166A34F2BC858EC00ECAAC5 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166A34E2BC858EC00ECAAC5 /* WeatherViewModel.swift */; };
+		1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166A3502BC8735100ECAAC5 /* Font+Style.swift */; };
 		117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */; };
 		117E3D622BC6E448001ED05A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D612BC6E448001ED05A /* ContentView.swift */; };
 		117E3D642BC6E449001ED05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D632BC6E449001ED05A /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 		11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixel_lcd_7.ttf; sourceTree = "<group>"; };
 		11297B332BC82C0200AC2D17 /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
 		11297B362BC82C1400AC2D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		11297B372BC8450A00AC2D17 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		1166A34E2BC858EC00ECAAC5 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		1166A3502BC8735100ECAAC5 /* Font+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Style.swift"; sourceTree = "<group>"; };
 		117E3D5C2BC6E448001ED05A /* PixelMeteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMeteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoApp.swift; sourceTree = "<group>"; };
 		117E3D612BC6E448001ED05A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +91,32 @@
 			path = assets;
 			sourceTree = "<group>";
 		};
+		11297B3B2BC84F1B00AC2D17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11297B372BC8450A00AC2D17 /* Weather.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11297B3C2BC84F3B00AC2D17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				117E3D612BC6E448001ED05A /* ContentView.swift */,
+				1166A3502BC8735100ECAAC5 /* Font+Style.swift */,
+			);
+			name = Views;
+			path = PixelMeteo/Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		11297B3F2BC8517400AC2D17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1166A34E2BC858EC00ECAAC5 /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		117E3D532BC6E448001ED05A = {
 			isa = PBXGroup;
 			children = (
@@ -108,9 +140,11 @@
 		117E3D5E2BC6E448001ED05A /* PixelMeteo */ = {
 			isa = PBXGroup;
 			children = (
+				11297B3F2BC8517400AC2D17 /* ViewModel */,
+				11297B3B2BC84F1B00AC2D17 /* Models */,
+				11297B3C2BC84F3B00AC2D17 /* Views */,
 				11297B362BC82C1400AC2D17 /* Info.plist */,
 				117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */,
-				117E3D612BC6E448001ED05A /* ContentView.swift */,
 				117E3D632BC6E449001ED05A /* Assets.xcassets */,
 				11297B312BC82BC700AC2D17 /* assets */,
 				117E3D652BC6E449001ED05A /* Preview Content */,
@@ -276,6 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				117E3D622BC6E448001ED05A /* ContentView.swift in Sources */,
+				1166A34F2BC858EC00ECAAC5 /* WeatherViewModel.swift in Sources */,
+				11297B382BC8450A00AC2D17 /* Weather.swift in Sources */,
+				1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */,
 				117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

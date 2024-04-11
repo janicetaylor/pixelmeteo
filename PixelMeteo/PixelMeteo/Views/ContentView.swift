@@ -8,17 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    var weatherViewModel: WeatherViewModel
+    
+    var TopHeader: some View {
+        HStack {
+            Text("New Orleans")
+            Text("Cloudy")
+            Text("Favorite Cities")
+            Text("Search")
         }
-        .padding()
+        .font(.sectionHeader)
+        .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    var MainHeader: some View {
+        VStack {
+            HStack {
+                Text("rain: 10%")
+                Text("high: 60")
+                Text("low: 70")
+                Text("feels like: 20")
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+            HStack {
+                Text("snow: 0%")
+                Text("wind: 17km/h")
+                Text("sunrise: 6:00")
+                Text("sunset: 8pm")
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+        }
+        .font(.sectionHeader)
+    }
+    
+    
+    var body: some View {
+        VStack() {
+            TopHeader
+            Text("68")
+                .font(.mainTemperature)
+            MainHeader
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(weatherViewModel: WeatherViewModel())
 }
