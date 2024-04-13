@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+
     var weatherViewModel: WeatherViewModel
     
     var TopHeader: some View {
@@ -24,18 +25,18 @@ struct ContentView: View {
     var MainHeader: some View {
         VStack {
             HStack {
-                Label("rain: 10%", image: "rain")
-                Label("high: 80", image: "highs")
-                Label("low: 70", image: "lows")
-                Label("feels like: 75", image: "feels-like")
+                Label("10%", image: "rain")
+                Label("H:80", image: "highs")
+                Label("L:70", image: "lows")
+                Label("feels:75", image: "feels-like")
             }
             .frame(maxWidth: .infinity, alignment: .center)
             
             HStack {
-                Text("snow: 0%")
-                Text("wind: 17km/h")
-                Text("sunrise: 6:00")
-                Text("sunset: 8pm")
+                Label("0%", image: "snow")
+                Label("17km/h", image: "wind")
+                Label("6:00am", image: "sunrise")
+                Label("6:00pm", image: "sunset")
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
@@ -48,6 +49,8 @@ struct ContentView: View {
             TopHeader
             Text("68")
                 .font(.mainTemperature)
+                .minimumScaleFactor(0.01)
+                .aspectRatio(contentMode: .fit)
             MainHeader
         }.task {
             await weatherViewModel.fetchData()
@@ -56,5 +59,6 @@ struct ContentView: View {
 }
 
 #Preview {
+    // bad!!!
     ContentView(weatherViewModel: WeatherViewModel())
 }
