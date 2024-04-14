@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct PixelMeteoApp: App {
+    @StateObject var weatherViewModel = WeatherViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView(weatherViewModel: WeatherViewModel())
+            ContentView(weatherViewModel: weatherViewModel)
         }
     }
 }

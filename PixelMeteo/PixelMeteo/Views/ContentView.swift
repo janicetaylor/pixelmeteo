@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    var weatherViewModel: WeatherViewModel
+    @ObservedObject var weatherViewModel: WeatherViewModel 
     
     var TopHeader: some View {
         HStack {
@@ -25,18 +25,17 @@ struct ContentView: View {
     var MainHeader: some View {
         VStack {
             HStack {
-                Label("10%", image: "rain")
+                Label("\(weatherViewModel.rain)%", image: "rain")
                 Label("H:80", image: "highs")
                 Label("L:70", image: "lows")
-                Label("feels:75", image: "feels-like")
+                Label("feels:\(weatherViewModel.apparentTemperature)", image: "feels-like")
             }
             .frame(maxWidth: .infinity, alignment: .center)
             
             HStack {
-                Label("0%", image: "snow")
-                Label("17km/h", image: "wind")
-                Label("6:00am", image: "sunrise")
-                Label("6:00pm", image: "sunset")
+                Label("\(weatherViewModel.snowfall)%", image: "snow")
+                Label("\(weatherViewModel.todaySunrise)", image: "sunrise")
+                Label("\(weatherViewModel.todaySunset)", image: "sunset")
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
@@ -47,7 +46,7 @@ struct ContentView: View {
     var body: some View {
         VStack() {
             TopHeader
-            Text("68")
+            Text("\(weatherViewModel.currentTemperature)")
                 .font(.mainTemperature)
                 .minimumScaleFactor(0.01)
                 .aspectRatio(contentMode: .fit)
@@ -58,7 +57,9 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    // bad!!!
-    ContentView(weatherViewModel: WeatherViewModel())
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(weatherViewModel: WeatherViewModel())
+    }
 }
+
