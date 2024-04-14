@@ -44,12 +44,10 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack() {
+        VStack(spacing: 0) {
             TopHeader
             Text("\(weatherViewModel.currentTemperature)")
                 .font(.mainTemperature)
-                .minimumScaleFactor(0.01)
-                .aspectRatio(contentMode: .fit)
             MainHeader
         }.task {
             await weatherViewModel.fetchData()
