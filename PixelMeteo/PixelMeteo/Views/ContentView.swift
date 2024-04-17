@@ -26,8 +26,8 @@ struct ContentView: View {
         VStack {
             HStack {
                 Label("\(weatherViewModel.rain)%", image: "rain")
-                Label("H:80", image: "highs")
-                Label("L:70", image: "lows")
+                Label("H:\(weatherViewModel.currentTemperatureHigh)", image: "highs")
+                Label("L:\(weatherViewModel.currentTemperatureLow)", image: "lows")
                 Label("feels:\(weatherViewModel.apparentTemperature)", image: "feels-like")
             }
             .frame(maxWidth: .infinity, alignment: .center)
@@ -42,6 +42,25 @@ struct ContentView: View {
         .font(.sectionHeader)
     }
     
+    var HourlyView: some View {
+        VStack {
+            List {
+                ForEach(weatherViewModel.hourlyWeathers) { hourlyWeather in
+                    Text("\(hourlyWeather.time) \(Int(hourlyWeather.temperature))")
+                 }
+            }
+        }
+    }
+    
+    var WeeklyView: some View {
+        List {
+            VStack {
+                Image(uiImage: UIImage(named: "wc-clear")!)
+                Text("Cloudy")
+                Text("Date...")
+            }
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -49,6 +68,8 @@ struct ContentView: View {
             Text("\(weatherViewModel.currentTemperature)")
                 .font(.mainTemperature)
             MainHeader
+            WeeklyView 
+            HourlyView
         }.task {
             await weatherViewModel.fetchData()
         }
