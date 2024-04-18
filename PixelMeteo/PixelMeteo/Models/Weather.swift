@@ -21,8 +21,16 @@ struct Weather {
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(WeatherData.self, from: data)
+        } catch let DecodingError.dataCorrupted(context) {
+            fatalError("unable to decode url data corrupted \(context.debugDescription)")
+        } catch let DecodingError.keyNotFound(key, context) {
+            fatalError("key \(key) not found for \(context.debugDescription)")
+        } catch let DecodingError.valueNotFound(key, context) {
+            fatalError("value not found for key \(key) in \(context.debugDescription)")
+        } catch let DecodingError.typeMismatch(key, context) {
+            fatalError("type mismatch for key \(key) in \(context.debugDescription)")
         } catch {
-            fatalError("unable to decode url")
+            fatalError("decoding error \(error.localizedDescription)")
         }
     }
     
