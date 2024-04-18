@@ -59,6 +59,8 @@ struct ContentView: View {
                     VStack {
                         let imageName: String = weatherViewModel.getImageNameForWeatherCode(code: dailyWeather.weather_code)
                         Image(uiImage: UIImage(named: imageName)!)
+                            .resizable()
+                            .frame(width: 30, height: 30, alignment: .center)
                         Text("\(weatherViewModel.shortWeatherDescription(for: dailyWeather.weather_code))")
                             .font(.sectionHeader)
                         Text("\(dailyWeather.time)")
@@ -76,7 +78,8 @@ struct ContentView: View {
             Text("\(weatherViewModel.currentTemperature)")
                 .font(.mainTemperature)
             MainHeader
-            WeeklyView 
+            Spacer()
+            WeeklyView
             HourlyView
         }.task {
             await weatherViewModel.fetchData()
