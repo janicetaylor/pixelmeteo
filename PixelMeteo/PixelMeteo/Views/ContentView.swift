@@ -53,14 +53,22 @@ struct ContentView: View {
     }
     
     var WeeklyView: some View {
-        List {
-            VStack {
-                Image(uiImage: UIImage(named: "wc-clear")!)
-                Text("Cloudy")
-                Text("Date...")
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(weatherViewModel.dailyWeathers) { dailyWeather in
+                    VStack {
+                        let imageName: String = weatherViewModel.getImageNameForWeatherCode(code: dailyWeather.weather_code)
+                        Image(uiImage: UIImage(named: imageName)!)
+                        Text("\(weatherViewModel.shortWeatherDescription(for: dailyWeather.weather_code))")
+                            .font(.sectionHeader)
+                        Text("\(dailyWeather.time)")
+                            .font(.sectionHeader)
+                    }
+                }
             }
         }
     }
+    
     
     var body: some View {
         VStack(spacing: 0) {

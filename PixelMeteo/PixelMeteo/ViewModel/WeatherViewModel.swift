@@ -28,6 +28,7 @@ import SwiftUI
     var dailyTempLow = [String]()
     
     @Published var hourlyWeathers = [HourlyWeather]()
+    @Published var dailyWeathers = [DailyWeather]()
     
     init() { }
 
@@ -48,6 +49,12 @@ import SwiftUI
             hourlyTemperature.enumerated().forEach { (index, value) in
                 let hourlyWeather = HourlyWeather(time: weatherData.hourly.time[index], temperature: weatherData.hourly.temperature_2m[index])
                 hourlyWeathers.append(hourlyWeather)
+            }
+            
+            let dailyTemperature = weatherData.daily.time
+            dailyTemperature.enumerated().forEach { (index, value) in
+                let dailyWeather = DailyWeather(time: weatherData.daily.time[index], weather_code: weatherData.daily.weather_code[index], sunrise: weatherData.daily.sunrise[index], sunset: weatherData.daily.sunset[index], precipitation_sum: weatherData.daily.precipitation_sum[index], rain_sum: weatherData.daily.rain_sum[index], showers_sum: weatherData.daily.showers_sum[index], precipitation_probability_max: weatherData.daily.precipitation_probability_max[index])
+                dailyWeathers.append(dailyWeather)
             }
             
         } catch {
@@ -94,20 +101,21 @@ import SwiftUI
         return weatherCode
     }
     
-    func getImageForWeatherCode(for code: Int) -> UIImage? {
+    func getImageNameForWeatherCode(code: Int) -> String {
         switch code {
         case 0, 1:
-            return UIImage(named: "wc-clear")
+            return "wc-clear"
         case 2, 3, 45, 48:
-            return UIImage(named: "wc-cloud")
+            return "wc-cloud"
         case 51...67:
-            return UIImage(named: "wc-rain")
+            return "wc-rain"
         case 71...77:
-            return UIImage(named: "wc-snow")
+            return "wc-snow"
         case 80...86:
-            return UIImage(named: "wc-storm")
+            return "wc-storm"
         default:
-            return UIImage(systemName: "wc-clear")
+            return "wc-clear"
         }
     }
+ 
 }
