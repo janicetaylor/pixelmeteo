@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		11297B342BC82C0200AC2D17 /* pixel_lcd_7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */; };
 		11297B352BC82C0200AC2D17 /* Consolas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B332BC82C0200AC2D17 /* Consolas.ttf */; };
-		11297B382BC8450A00AC2D17 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11297B372BC8450A00AC2D17 /* Weather.swift */; };
+		11297B382BC8450A00AC2D17 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11297B372BC8450A00AC2D17 /* WeatherModel.swift */; };
 		1166A34F2BC858EC00ECAAC5 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166A34E2BC858EC00ECAAC5 /* WeatherViewModel.swift */; };
 		1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166A3502BC8735100ECAAC5 /* Font+Style.swift */; };
-		1166A3532BC88B9C00ECAAC5 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166A3522BC88B9C00ECAAC5 /* WeatherData.swift */; };
-		117036792BD068BD004FB53E /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117036782BD068BD004FB53E /* HourlyWeather.swift */; };
-		1170367F2BD09CA6004FB53E /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170367E2BD09CA6004FB53E /* DailyWeather.swift */; };
+		1170369B2BD1B188004FB53E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170369A2BD1B188004FB53E /* LocationManager.swift */; };
 		117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */; };
 		117E3D622BC6E448001ED05A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D612BC6E448001ED05A /* ContentView.swift */; };
 		117E3D642BC6E449001ED05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117E3D632BC6E449001ED05A /* Assets.xcassets */; };
@@ -45,12 +43,11 @@
 		11297B322BC82C0200AC2D17 /* pixel_lcd_7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixel_lcd_7.ttf; sourceTree = "<group>"; };
 		11297B332BC82C0200AC2D17 /* Consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Consolas.ttf; sourceTree = "<group>"; };
 		11297B362BC82C1400AC2D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		11297B372BC8450A00AC2D17 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		11297B372BC8450A00AC2D17 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		1166A34E2BC858EC00ECAAC5 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		1166A3502BC8735100ECAAC5 /* Font+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Style.swift"; sourceTree = "<group>"; };
-		1166A3522BC88B9C00ECAAC5 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		117036782BD068BD004FB53E /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
-		1170367E2BD09CA6004FB53E /* DailyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeather.swift; sourceTree = "<group>"; };
+		1170369A2BD1B188004FB53E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1170369C2BD1B800004FB53E /* PixelMeteo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PixelMeteo.entitlements; sourceTree = "<group>"; };
 		117E3D5C2BC6E448001ED05A /* PixelMeteo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelMeteo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoApp.swift; sourceTree = "<group>"; };
 		117E3D612BC6E448001ED05A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,10 +97,7 @@
 		11297B3B2BC84F1B00AC2D17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				11297B372BC8450A00AC2D17 /* Weather.swift */,
-				1166A3522BC88B9C00ECAAC5 /* WeatherData.swift */,
-				117036782BD068BD004FB53E /* HourlyWeather.swift */,
-				1170367E2BD09CA6004FB53E /* DailyWeather.swift */,
+				11297B372BC8450A00AC2D17 /* WeatherModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				1166A34E2BC858EC00ECAAC5 /* WeatherViewModel.swift */,
+				1170369A2BD1B188004FB53E /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -149,6 +144,7 @@
 		117E3D5E2BC6E448001ED05A /* PixelMeteo */ = {
 			isa = PBXGroup;
 			children = (
+				1170369C2BD1B800004FB53E /* PixelMeteo.entitlements */,
 				11297B3F2BC8517400AC2D17 /* ViewModel */,
 				11297B3B2BC84F1B00AC2D17 /* Models */,
 				11297B3C2BC84F3B00AC2D17 /* Views */,
@@ -318,14 +314,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1170367F2BD09CA6004FB53E /* DailyWeather.swift in Sources */,
 				117E3D622BC6E448001ED05A /* ContentView.swift in Sources */,
-				117036792BD068BD004FB53E /* HourlyWeather.swift in Sources */,
 				1166A34F2BC858EC00ECAAC5 /* WeatherViewModel.swift in Sources */,
-				11297B382BC8450A00AC2D17 /* Weather.swift in Sources */,
+				11297B382BC8450A00AC2D17 /* WeatherModel.swift in Sources */,
 				1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */,
-				1166A3532BC88B9C00ECAAC5 /* WeatherData.swift in Sources */,
 				117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */,
+				1170369B2BD1B188004FB53E /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PixelMeteo/PixelMeteo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PixelMeteo/Preview Content\"";
@@ -497,12 +492,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swift.janice.PixelMeteo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.janicetaylor.wpixelmeteo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -515,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PixelMeteo/PixelMeteo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PixelMeteo/Preview Content\"";
@@ -526,12 +523,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.swift.janice.PixelMeteo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.janicetaylor.wpixelmeteo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -548,7 +546,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R82DC4STSC;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.janice.PixelMeteoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -568,7 +566,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R82DC4STSC;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.janice.PixelMeteoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -587,6 +585,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R82DC4STSC;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.janice.PixelMeteoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -605,6 +604,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R82DC4STSC;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.janice.PixelMeteoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

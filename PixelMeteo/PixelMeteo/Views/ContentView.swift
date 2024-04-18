@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
+import CoreLocation
+import CoreLocationUI
 
 struct ContentView: View {
 
     @ObservedObject var weatherViewModel: WeatherViewModel 
+    @ObservedObject var locationManager = LocationManager()
     
     var TopHeader: some View {
         HStack {
-            Text("New Orleans")
+            if let location = locationManager.location {
+                Text("your location: \(location.latitude), \(location.longitude)")
+            }
+            LocationButton {
+                locationManager.requestLocation()
+            }
             Text("Cloudy")
             Text("Favorite Cities")
             Text("Search")
@@ -25,17 +33,17 @@ struct ContentView: View {
     var MainHeader: some View {
         VStack {
             HStack {
-                Label("\(weatherViewModel.rain)%", image: "rain")
-                Label("H:\(weatherViewModel.currentTemperatureHigh)", image: "highs")
-                Label("L:\(weatherViewModel.currentTemperatureLow)", image: "lows")
-                Label("feels:\(weatherViewModel.apparentTemperature)", image: "feels-like")
+                Label("100%", image: "rain")
+                Label("H:25", image: "highs")
+                Label("L:25", image: "lows")
+                Label("feels:25", image: "feels-like")
             }
             .frame(maxWidth: .infinity, alignment: .center)
             
             HStack {
-                Label("\(weatherViewModel.snowfall)%", image: "snow")
-                Label("\(weatherViewModel.todaySunrise)", image: "sunrise")
-                Label("\(weatherViewModel.todaySunset)", image: "sunset")
+                Label("0%", image: "snow")
+                Label("6:00am", image: "sunrise")
+                Label("6:0pm", image: "sunset")
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
@@ -45,9 +53,7 @@ struct ContentView: View {
     var HourlyView: some View {
         VStack {
             List {
-                ForEach(weatherViewModel.hourlyWeathers) { hourlyWeather in
-                    Text("\(hourlyWeather.time) \(Int(hourlyWeather.temperature))")
-                 }
+                Text("hourly ... ")
             }
         }
     }
@@ -55,15 +61,15 @@ struct ContentView: View {
     var WeeklyView: some View {
         ScrollView(.horizontal) {
             HStack {
-                ForEach(weatherViewModel.dailyWeathers) { dailyWeather in
+                ForEach(0..<3) { _ in
                     VStack {
-                        let imageName: String = weatherViewModel.getImageNameForWeatherCode(code: dailyWeather.weather_code)
+                        let imageName: String = "wc-cloud"
                         Image(uiImage: UIImage(named: imageName)!)
                             .resizable()
                             .frame(width: 30, height: 30, alignment: .center)
-                        Text("\(weatherViewModel.shortWeatherDescription(for: dailyWeather.weather_code))")
+                        Text("Cloudy")
                             .font(.sectionHeader)
-                        Text("\(dailyWeather.time)")
+                        Text("12:00am")
                             .font(.sectionHeader)
                     }
                 }
@@ -75,14 +81,12 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             TopHeader
-            Text("\(weatherViewModel.currentTemperature)")
+            Text("25")
                 .font(.mainTemperature)
             MainHeader
             Spacer()
             WeeklyView
             HourlyView
-        }.task {
-            await weatherViewModel.fetchData()
         }
     }
 }
