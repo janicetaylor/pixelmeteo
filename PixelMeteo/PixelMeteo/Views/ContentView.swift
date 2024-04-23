@@ -17,7 +17,7 @@ struct ContentView: View {
     var TopHeader: some View {
         HStack {
             if let location = locationManager.location {
-                Text("your location: \(location.latitude), \(location.longitude)")
+                Text("your location: \(locationManager.getPlace(from: location))")
             }
             LocationButton {
                 locationManager.requestLocation()

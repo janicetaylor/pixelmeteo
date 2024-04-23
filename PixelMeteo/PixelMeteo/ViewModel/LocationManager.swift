@@ -11,7 +11,8 @@ import CoreLocationUI
 
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
-    @Published var location: CLLocationCoordinate2D?
+    @Published var locationCoordinate: CLLocationCoordinate2D?
+    @Published var location: CLLocation?
     
     override init() {
         super.init()
@@ -23,12 +24,26 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
+        locationCoordinate = locations.first?.coordinate
+        location = locations.first
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         fatalError("unable to get location: \(error)")
     }
     
+    func getPlace(from location: CLLocation) -> String {
+        let geocoder = CLGeocoder()
+        var city = "New Orleans"
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            if let placemarks = placemarks {
+                city = placemarks.first?.locality ?? city
+            }
+            else {
+                fatalError("error getting placemark: \(error?.localizedDescription ?? "error getting placemark")")
+            }
+        }
+        return city
+    }
     
 }
