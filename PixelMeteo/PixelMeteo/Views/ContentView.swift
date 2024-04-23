@@ -11,17 +11,17 @@ import CoreLocationUI
 
 struct ContentView: View {
 
-    @ObservedObject var locationManager = WeatherViewModel()
+    @ObservedObject var weatherViewModel = WeatherViewModel()
     
     var TopHeader: some View {
         HStack {
             VStack(alignment: .leading) {
-                if let location = locationManager.location {
-                    Label("\(locationManager.cityDetail), \(locationManager.city)", image: "rain")
+                if let location = weatherViewModel.location {
+                    Label("\(weatherViewModel.cityDetail), \(weatherViewModel.city)", image: "rain")
                 }
             }
             LocationButton {
-                locationManager.requestLocation()
+                weatherViewModel.requestLocation()
             }
         }
         .font(.sectionHeader)
@@ -79,9 +79,9 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             TopHeader
-            Text(locationManager.currentWeather)
+            Text(weatherViewModel.currentWeather)
                 .task {
-                    await locationManager.getCurrentWeather()
+                    await weatherViewModel.getCurrentWeather()
                 }
                 .font(.mainTemperature)
             MainHeader

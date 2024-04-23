@@ -19,16 +19,12 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var city: String = ""
     @Published var cityDetail: String = ""
     
-    @Published var weather: CurrentWeather?
+    @Published var weather: Weather?
+    @Published var currentWeather: String = ""
         
     override init() {
         super.init()
         manager.delegate = self
-    }
-    
-    var currentWeather: String {
-        let converted = weather?.temperature.converted(to: .fahrenheit).description
-        return converted ?? "getting weather data..."
     }
     
     func requestLocation() {
@@ -38,7 +34,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {
         locationCoordinate = locations.first?.coordinate
         location = locations.first
-        print("location: \(location)")
+        print("location: \(location), \(location!.coordinate.latitude), \(location!.coordinate.longitude)")
         if let location = locations.first {
             getPlace(from: location)
         } else {
@@ -67,13 +63,16 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @MainActor
     func getCurrentWeather() async {
         do {
-            let location = CLLocation(latitude: 29.9511, longitude: 90.0715)
-            weather = try await WeatherService.shared.weather(for: location, including: .current)
+            let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
+            weather = try await WeatherService.shared.weather(for: location)
+            if let weather = weather {
+                let value = weather.currentWeather.temperature
+                let converted = value.converted(to: .fahrenheit)
+                currentWeather = converted.value.truncateTemperature(measurement: value)
+            }
         } catch {
             fatalError("can't get current weather")
         }
     }
-    
-    
     
 }
