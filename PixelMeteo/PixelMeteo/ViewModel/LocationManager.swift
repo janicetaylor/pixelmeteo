@@ -13,6 +13,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
     @Published var locationCoordinate: CLLocationCoordinate2D?
     @Published var location: CLLocation?
+    @Published var city: String = ""
+    @Published var cityDetail: String = ""
     
     override init() {
         super.init()
@@ -26,24 +28,27 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationCoordinate = locations.first?.coordinate
         location = locations.first
+        print("location: \(location)")
+        if let location = locations.first {
+            getPlace(from: location)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         fatalError("unable to get location: \(error)")
     }
     
-    func getPlace(from location: CLLocation) -> String {
+    func getPlace(from location: CLLocation) {
         let geocoder = CLGeocoder()
-        var city = "New Orleans"
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+        geocoder.reverseGeocodeLocation(location) { [self] (placemarks, error) in
             if let placemarks = placemarks {
-                city = placemarks.first?.locality ?? city
+                city = placemarks.first?.locality ?? "New Orleans"
+                cityDetail = placemarks.first?.subLocality ?? "2233 St. Charles Avenue"
             }
             else {
                 fatalError("error getting placemark: \(error?.localizedDescription ?? "error getting placemark")")
             }
         }
-        return city
     }
     
 }

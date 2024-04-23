@@ -16,15 +16,14 @@ struct ContentView: View {
     
     var TopHeader: some View {
         HStack {
-            if let location = locationManager.location {
-                Text("your location: \(locationManager.getPlace(from: location))")
+            VStack(alignment: .leading) {
+                if let location = locationManager.location {
+                    Label("\(locationManager.cityDetail), \(locationManager.city)", image: "rain")
+                }
             }
             LocationButton {
                 locationManager.requestLocation()
             }
-            Text("Cloudy")
-            Text("Favorite Cities")
-            Text("Search")
         }
         .font(.sectionHeader)
         .frame(maxWidth: .infinity, alignment: .center)
@@ -88,6 +87,7 @@ struct ContentView: View {
             WeeklyView
             HourlyView
         }
+       
     }
 }
 
