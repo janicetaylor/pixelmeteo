@@ -29,7 +29,8 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var precipitationChance: Int = 0
     @Published var sunrise: String = ""
     @Published var sunset: String = ""
-    @Published var hourlyInfo:[HourlyInfo] = []
+    @Published var weeklyInfo:[WeatherInfo] = []
+    @Published var hourlyInfo:[WeatherInfo] = []
         
     override init() {
         super.init()
@@ -75,18 +76,38 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
             weather = try await WeatherService.shared.weather(for: location)
             if let weather = weather {
-                let hourlyForecast = weather.hourlyForecast.forecast
-                for hourly in hourlyForecast {
-                    let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
-                    let info: HourlyInfo = HourlyInfo(temperature: hourlyTemp, time: hourly.date.formatted())
-                    hourlyInfo.append(info)
-                }
-                
                 updateWeatherValues(weather: weather)
             }
                         
         } catch {
             fatalError("can't get current weather")
+        }
+    }
+    
+    // refactor 
+    
+    @MainActor
+    func getWeeklyWeather() async {
+        do {
+            let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
+            let calendar = Calendar.current
+            let formatter = DateFormatter()
+            let startDate = Date()
+            if let endDate = calendar.date(byAdding: .day, value: 7, to: startDate) {
+                let weeklyForecast = try await WeatherService.shared.weather(for: location, including: .hourly(startDate: startDate, endDate: endDate))
+                for hourly in weeklyForecast {
+                    let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
+                    let info: WeatherInfo = WeatherInfo(temperature: hourlyTemp, time: hourly.date)
+                    weeklyInfo.append(info)
+                    
+                    if calendar.isDateInToday(info.time) {
+                        hourlyInfo.append(info)
+                    }
+                    print(hourlyInfo)
+                }
+            }
+        } catch {
+            fatalError("can't get weekly weather")
         }
     }
     

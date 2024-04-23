@@ -57,28 +57,25 @@ struct ContentView: View {
     }
     
     var HourlyView: some View {
-        VStack {
-            List {
-                ForEach(weatherViewModel.hourlyInfo) { hourForecast in
-                    Text("\(hourForecast.temperature) \(hourForecast.time)")
-                        .font(.headlineSmall)
+        ScrollView(.horizontal) {
+            HStack {
+                    ForEach(weatherViewModel.hourlyInfo) { hourForecast in
+                        VStack {
+                            Image(uiImage: UIImage(named: "wc-storm")!)
+                            Text("\(hourForecast.temperature)")
+                            Text("\(hourForecast.time.formatted())")
+                        }
                 }
-            }
+            }.font(.headlineSmall)
         }
     }
     
     var WeeklyView: some View {
-        ScrollView(.horizontal) {
-            HStack {
-                ForEach(0..<3) { _ in
-                    VStack {
-                        let imageName: String = "wc-cloud"
-                        Image(uiImage: UIImage(named: imageName)!)
-                            .resizable()
-                            .frame(width: 30, height: 30, alignment: .center)
-                        Text("Cloudy")
-                            .font(.headlineLarge)
-                        Text("12:00am")
+        HStack {
+            VStack {
+                List {
+                    ForEach(weatherViewModel.weeklyInfo) { hourForecast in
+                        Text("\(hourForecast.time.formatted()) \(hourForecast.temperature)")
                             .font(.headlineSmall)
                     }
                 }
@@ -86,19 +83,19 @@ struct ContentView: View {
         }
     }
     
-    
     var body: some View {
         VStack(spacing: 0) {
             TopHeader
             Text(weatherViewModel.currentTemperature)
                 .task {
                     await weatherViewModel.getCurrentWeather()
+                    await weatherViewModel.getWeeklyWeather()
                 }
                 .font(.mainTemperature)
             MainHeader
             Spacer()
-            WeeklyView
             HourlyView
+            WeeklyView
         }
        
     }

@@ -11,7 +11,7 @@
 		11297B352BC82C0200AC2D17 /* Consolas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11297B332BC82C0200AC2D17 /* Consolas.ttf */; };
 		11297B382BC8450A00AC2D17 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11297B372BC8450A00AC2D17 /* WeatherModel.swift */; };
 		115B1CE02BD8235600791023 /* Measurement+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115B1CDF2BD8235600791023 /* Measurement+Formatter.swift */; };
-		115B1CE22BD831E200791023 /* HourlyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115B1CE12BD831E200791023 /* HourlyInfo.swift */; };
+		115B1CE22BD831E200791023 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115B1CE12BD831E200791023 /* WeatherInfo.swift */; };
 		1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166A3502BC8735100ECAAC5 /* Font+Style.swift */; };
 		1170369B2BD1B188004FB53E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170369A2BD1B188004FB53E /* WeatherViewModel.swift */; };
 		117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D5F2BC6E448001ED05A /* PixelMeteoApp.swift */; };
@@ -46,7 +46,7 @@
 		11297B362BC82C1400AC2D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		11297B372BC8450A00AC2D17 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		115B1CDF2BD8235600791023 /* Measurement+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measurement+Formatter.swift"; sourceTree = "<group>"; };
-		115B1CE12BD831E200791023 /* HourlyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyInfo.swift; sourceTree = "<group>"; };
+		115B1CE12BD831E200791023 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		1166A3502BC8735100ECAAC5 /* Font+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Style.swift"; sourceTree = "<group>"; };
 		1170369A2BD1B188004FB53E /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		1170369C2BD1B800004FB53E /* PixelMeteo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PixelMeteo.entitlements; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				11297B372BC8450A00AC2D17 /* WeatherModel.swift */,
-				115B1CE12BD831E200791023 /* HourlyInfo.swift */,
+				115B1CE12BD831E200791023 /* WeatherInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				117E3D622BC6E448001ED05A /* ContentView.swift in Sources */,
-				115B1CE22BD831E200791023 /* HourlyInfo.swift in Sources */,
+				115B1CE22BD831E200791023 /* WeatherInfo.swift in Sources */,
 				11297B382BC8450A00AC2D17 /* WeatherModel.swift in Sources */,
 				1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */,
 				117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */,

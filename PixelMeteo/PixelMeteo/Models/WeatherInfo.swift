@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct HourlyInfo: Identifiable {
+struct WeatherInfo: Identifiable {
     var id = UUID()
     var temperature: String 
-    var time: String
+    var time: Date
 }
