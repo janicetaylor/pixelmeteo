@@ -14,17 +14,20 @@ struct ContentView: View {
     @ObservedObject var weatherViewModel = WeatherViewModel()
     
     var TopHeader: some View {
-        HStack {
+        HStack(spacing: 5) {
             VStack(alignment: .leading) {
                 if let location = weatherViewModel.location {
-                    Label("\(weatherViewModel.cityDetail), \(weatherViewModel.city)", image: "rain")
+                    Text("\(weatherViewModel.city)")
+                        .font(.mainHeadlineLarge)
+                    Text("\(weatherViewModel.cityDetail)")
+                        .font(.headlineSmall)
                 }
             }
+            Spacer()
             LocationButton {
                 weatherViewModel.requestLocation()
-            }
+            }.font(.headlineSmall)
         }
-        .font(.sectionHeader)
         .frame(maxWidth: .infinity, alignment: .center)
     }
     
@@ -45,7 +48,7 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
-        .font(.sectionHeader)
+        .font(.headlineSmall)
     }
     
     var HourlyView: some View {
@@ -66,9 +69,9 @@ struct ContentView: View {
                             .resizable()
                             .frame(width: 30, height: 30, alignment: .center)
                         Text("Cloudy")
-                            .font(.sectionHeader)
+                            .font(.headlineLarge)
                         Text("12:00am")
-                            .font(.sectionHeader)
+                            .font(.headlineSmall)
                     }
                 }
             }
