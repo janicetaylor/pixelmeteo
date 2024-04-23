@@ -29,7 +29,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var precipitationChance: Int = 0
     @Published var sunrise: String = ""
     @Published var sunset: String = ""
-    @Published var hourlyForecast:[HourWeather] = []
+    @Published var hourlyInfo:[HourlyInfo] = []
         
     override init() {
         super.init()
@@ -75,7 +75,13 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
             weather = try await WeatherService.shared.weather(for: location)
             if let weather = weather {
-                hourlyForecast = weather.hourlyForecast.forecast
+                let hourlyForecast = weather.hourlyForecast.forecast
+                for hourly in hourlyForecast {
+                    let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
+                    let info: HourlyInfo = HourlyInfo(temperature: hourlyTemp, time: hourly.date.formatted())
+                    hourlyInfo.append(info)
+                }
+                
                 updateWeatherValues(weather: weather)
             }
                         

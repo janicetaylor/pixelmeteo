@@ -59,9 +59,10 @@ struct ContentView: View {
     var HourlyView: some View {
         VStack {
             List {
-//                ForEach(weatherViewModel.hourlyForecast) { hourForecast in
-//                    Text("\(hourForecast.apparentTemperature)")
-//                }
+                ForEach(weatherViewModel.hourlyInfo) { hourForecast in
+                    Text("\(hourForecast.temperature) \(hourForecast.time)")
+                        .font(.headlineSmall)
+                }
             }
         }
     }
