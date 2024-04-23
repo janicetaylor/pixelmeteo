@@ -11,8 +11,7 @@ import CoreLocationUI
 
 struct ContentView: View {
 
-    @ObservedObject var weatherViewModel: WeatherViewModel 
-    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var locationManager = WeatherViewModel()
     
     var TopHeader: some View {
         HStack {
@@ -80,7 +79,10 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             TopHeader
-            Text("25")
+            Text(locationManager.currentWeather)
+                .task {
+                    await locationManager.getCurrentWeather()
+                }
                 .font(.mainTemperature)
             MainHeader
             Spacer()
@@ -93,7 +95,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(weatherViewModel: WeatherViewModel())
+        ContentView()
     }
 }
 
