@@ -34,17 +34,17 @@ struct ContentView: View {
     var MainHeader: some View {
         VStack {
             HStack {
-                Label("100%", image: "rain")
-                Label("H:25", image: "highs")
-                Label("L:25", image: "lows")
-                Label("feels:25", image: "feels-like")
+                Label("\(weatherViewModel.precipitationChance)%", image: "rain")
+                Label("H:\(weatherViewModel.high)", image: "highs")
+                Label("L:\(weatherViewModel.low)", image: "lows")
+                Label("feels:\(weatherViewModel.feelsLikeTemperature)", image: "feels-like")
             }
             .frame(maxWidth: .infinity, alignment: .center)
             
             HStack {
-                Label("0%", image: "snow")
-                Label("6:00am", image: "sunrise")
-                Label("6:0pm", image: "sunset")
+                Label("\(weatherViewModel.snowfallAmount)", image: "snow")
+                Label("\(weatherViewModel.sunrise)", image: "sunrise")
+                Label("\(weatherViewModel.sunset)", image: "sunset")
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
@@ -82,7 +82,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             TopHeader
-            Text(weatherViewModel.currentWeather)
+            Text(weatherViewModel.currentTemperature)
                 .task {
                     await weatherViewModel.getCurrentWeather()
                 }
