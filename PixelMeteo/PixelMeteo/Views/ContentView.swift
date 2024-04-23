@@ -35,6 +35,11 @@ struct ContentView: View {
         VStack {
             HStack {
                 Label("\(weatherViewModel.precipitationChance)%", image: "rain")
+                Label("humidity:\(weatherViewModel.humidity)%", image: "rain")
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+            HStack {
                 Label("H:\(weatherViewModel.high)", image: "highs")
                 Label("L:\(weatherViewModel.low)", image: "lows")
                 Label("feels:\(weatherViewModel.feelsLikeTemperature)", image: "feels-like")
@@ -54,7 +59,9 @@ struct ContentView: View {
     var HourlyView: some View {
         VStack {
             List {
-                Text("hourly ... ")
+//                ForEach(weatherViewModel.hourlyForecast) { hourForecast in
+//                    Text("\(hourForecast.apparentTemperature)")
+//                }
             }
         }
     }

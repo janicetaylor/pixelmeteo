@@ -24,10 +24,12 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var feelsLikeTemperature: String = ""
     @Published var high: String = ""
     @Published var low: String = ""
+    @Published var humidity: Int = 0
     @Published var snowfallAmount: String = ""
     @Published var precipitationChance: Int = 0
     @Published var sunrise: String = ""
     @Published var sunset: String = ""
+    @Published var hourlyForecast:[HourWeather] = []
         
     override init() {
         super.init()
@@ -73,8 +75,10 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
             weather = try await WeatherService.shared.weather(for: location)
             if let weather = weather {
+                hourlyForecast = weather.hourlyForecast.forecast
                 updateWeatherValues(weather: weather)
             }
+                        
         } catch {
             fatalError("can't get current weather")
         }
@@ -86,6 +90,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
         let apparentTemp = weather.currentWeather.apparentTemperature
         feelsLikeTemperature = apparentTemp.truncateTemperature(measurement: apparentTemp, unit: .fahrenheit)
+        humidity = Int(weather.currentWeather.humidity*100)
         
         if let dailyForecast = weather.dailyForecast.first {
             let highTemp = dailyForecast.highTemperature
@@ -96,6 +101,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             
             precipitationChance = Int(dailyForecast.precipitationChance)
             snowfallAmount = dailyForecast.snowfallAmount.formatted()
+            
         } else {
             fatalError("can't get daily forecast")
         }
@@ -106,6 +112,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
         } else {
             fatalError("can't get daily sun events")
         }
+        
         
         
     }
