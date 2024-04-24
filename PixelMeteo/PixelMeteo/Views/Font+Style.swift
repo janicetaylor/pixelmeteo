@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension Font {
-    static let mainTemperature:Font = Font.custom("Pixeled", size: 100.0)
+    static let mainTemperature:Font = Font.custom("Pixeled", size: 110.0)
     
     static let headlineLarge:Font = Font.custom("Consolas", size: 16.0)
     static let headlineMedium:Font = Font.custom("Consolas", size: 14.0)

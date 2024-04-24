@@ -16,11 +16,18 @@ struct ContentView: View {
     var TopHeader: some View {
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
-                Text("New Orleans")
-                    .font(.mainHeadlineLarge)
-                Text("Central City")
-                    .font(.headlineMedium)
+                if let location = weatherViewModel.location {
+                    Text("\(weatherViewModel.city)")
+                        .font(.mainHeadlineLarge)
+                    Text("\(weatherViewModel.cityDetail)")
+                        .font(.headlineMedium)
+                }
             }
+            LocationButton {
+                 weatherViewModel.requestLocation()
+             }
+            .font(.headlineSmall)
+            .foregroundColor(Color.white)
             Spacer()
             VStack(alignment: .trailing, spacing: 0) {
                 Label(weatherViewModel.currentTemperature, image: "sunrise")
@@ -69,8 +76,8 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Daily Summary")
                 .font(.mainHeadlineLarge)
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et enim sit amet felis tincidunt venenatis eu et metus. Quisque elit ante, dictum sit amet sapien non, pulvinar finibus lacus.")
-                .font(.headlineSmall)
+            Text("The weather today in \(weatherViewModel.cityDetail), \(weatherViewModel.city) was \(weatherViewModel.weatherDescription). The average temperature was approximately \(weatherViewModel.currentTemperature). The chance of rain today is \(weatherViewModel.precipitationChance)%.")
+                .font(.headlineMedium)
         }
         .padding(.leading, 5)
         .padding(.trailing, 5)
@@ -118,8 +125,11 @@ struct ContentView: View {
                         }
                         .font(.headlineLarge)
                     }
+                    .listRowBackground(Color.clear)
                 }
+                .scrollContentBackground(.hidden)
                 .listStyle(.plain)
+                .background(Color.clear)
             }
         }
     }
@@ -128,33 +138,29 @@ struct ContentView: View {
         VStack {
             Text(weatherViewModel.currentTemperature)
                 .font(.mainTemperature)
-                .background(.pink)
-        }
-    }
-    
-    var MainHouseView: some View {
-        VStack {
-            Image("house-cyberpunk")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
         }
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            TopHeader
-                .task {
-                    await weatherViewModel.getCurrentWeather()
-                    await weatherViewModel.getWeeklyWeather()
-                }
-            MiddleHeader
-            MainHouseView
-            DailySummaryView
-            Spacer()
-            HourlyView
-            WeeklyView
+        ZStack {
+            Rectangle()
+                .fill(Color("BackgroundColor"))
+                .ignoresSafeArea()
+            VStack(spacing: 0) {
+                TopHeader
+                    .task {
+                        await weatherViewModel.getCurrentWeather()
+                        await weatherViewModel.getWeeklyWeather()
+                    }
+                MiddleHeader
+                MainTemperatureView
+                DailySummaryView
+                Spacer()
+                HourlyView
+                WeeklyView
+            }
         }
-       
+       .foregroundColor(Color("ForegroundColor"))
     }
 }
 
