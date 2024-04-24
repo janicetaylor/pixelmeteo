@@ -14,38 +14,47 @@ struct ContentView: View {
     @ObservedObject var weatherViewModel = WeatherViewModel()
     
     var TopHeader: some View {
-        HStack(spacing: 5) {
-            VStack(alignment: .leading) {
-                if let location = weatherViewModel.location {
-                    Text("\(weatherViewModel.city)")
-                        .font(.mainHeadlineLarge)
-                    Text("\(weatherViewModel.cityDetail)")
-                        .font(.headlineSmall)
-                }
+        HStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("New Orleans")
+                    .font(.mainHeadlineLarge)
+                Text("Central City")
+                    .font(.headlineMedium)
             }
             Spacer()
-            LocationButton {
-                weatherViewModel.requestLocation()
-            }.font(.headlineSmall)
+            VStack(alignment: .trailing, spacing: 0) {
+                Label(weatherViewModel.currentTemperature, image: "sunrise")
+                    .font(.mainHeadlineLarge)
+                Text(weatherViewModel.weatherDescription)
+                    .font(.headlineMedium)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
+    }
+    
+    var MiddleHeader: some View {
+        HStack(spacing: 0) {
+            Label("H:\(weatherViewModel.high)", image: "highs")
+                .padding(.trailing, 2)
+            Label("L:\(weatherViewModel.low)", image: "lows")
+                .padding(.trailing, 2)
+            Label("feels like:\(weatherViewModel.feelsLikeTemperature)", image: "feels-like")
+            Spacer()
+            Label("\(weatherViewModel.precipitationChance)%", image: "rain")
+                .padding(.trailing, 5)
+            Label("\(weatherViewModel.humidity)%", image: "humidity")
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .font(.headlineMedium)
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
+        .padding(.top, 5)
     }
     
     var MainHeader: some View {
         VStack {
-            HStack {
-                Label("\(weatherViewModel.precipitationChance)%", image: "rain")
-                Label("humidity:\(weatherViewModel.humidity)%", image: "rain")
-            }
-            .frame(maxWidth: .infinity, alignment: .center)
-            
-            HStack {
-                Label("H:\(weatherViewModel.high)", image: "highs")
-                Label("L:\(weatherViewModel.low)", image: "lows")
-                Label("feels:\(weatherViewModel.feelsLikeTemperature)", image: "feels-like")
-            }
-            .frame(maxWidth: .infinity, alignment: .center)
-            
             HStack {
                 Label("\(weatherViewModel.snowfallAmount)", image: "snow")
                 Label("\(weatherViewModel.sunrise)", image: "sunrise")
@@ -56,43 +65,91 @@ struct ContentView: View {
         .font(.headlineSmall)
     }
     
+    var DailySummaryView: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Daily Summary")
+                .font(.mainHeadlineLarge)
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et enim sit amet felis tincidunt venenatis eu et metus. Quisque elit ante, dictum sit amet sapien non, pulvinar finibus lacus.")
+                .font(.headlineSmall)
+        }
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
+    }
+    
     var HourlyView: some View {
-        ScrollView(.horizontal) {
-            HStack {
-                    ForEach(weatherViewModel.hourlyInfo) { hourForecast in
-                        VStack {
-                            Image(uiImage: UIImage(named: "wc-storm")!)
-                            Text("\(hourForecast.temperature)")
-                            Text("\(hourForecast.time.formatted())")
-                        }
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Hourly Forecast")
+                .font(.mainHeadlineLarge)
+                .padding(.leading, 5)
+                .padding(.trailing, 5)
+            ScrollView(.horizontal) {
+                HStack(spacing: 20) {
+                        ForEach(weatherViewModel.hourlyInfo) { hourForecast in
+                            VStack {
+                                Text("\(hourForecast.formattedTime)")
+                                    .font(.headlineSmall)
+                                Image(uiImage: UIImage(named: "wc-storm")!)
+                                Text("\(hourForecast.temperature)")
+                                    .font(.headlineSmall)
+                            }
+                    }
                 }
-            }.font(.headlineSmall)
+                .padding(.leading, 5)
+                .padding(.trailing, 5)
+            }
         }
     }
     
     var WeeklyView: some View {
-        HStack {
-            VStack {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Weekly Forecast")
+                .font(.mainHeadlineLarge)
+                .padding(.leading, 5)
+                .padding(.trailing, 5)
+            HStack {
                 List {
                     ForEach(weatherViewModel.weeklyInfo) { hourForecast in
-                        Text("\(hourForecast.time.formatted()) \(hourForecast.temperature)")
-                            .font(.headlineSmall)
+                        HStack {
+                            Image("sunrise")
+                            Text("\(hourForecast.formattedDay)")
+                            Spacer()
+                            Text("\(hourForecast.description)")
+                            Text("\(hourForecast.temperature)")
+                        }
+                        .font(.headlineLarge)
                     }
                 }
+                .listStyle(.plain)
             }
+        }
+    }
+    
+    var MainTemperatureView: some View {
+        VStack {
+            Text(weatherViewModel.currentTemperature)
+                .font(.mainTemperature)
+                .background(.pink)
+        }
+    }
+    
+    var MainHouseView: some View {
+        VStack {
+            Image("house-cyberpunk")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
     }
     
     var body: some View {
         VStack(spacing: 0) {
             TopHeader
-            Text(weatherViewModel.currentTemperature)
                 .task {
                     await weatherViewModel.getCurrentWeather()
                     await weatherViewModel.getWeeklyWeather()
                 }
-                .font(.mainTemperature)
-            MainHeader
+            MiddleHeader
+            MainHouseView
+            DailySummaryView
             Spacer()
             HourlyView
             WeeklyView

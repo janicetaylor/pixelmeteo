@@ -7,8 +7,7 @@
 
 import Foundation
 
-extension Measurement {
-    
+extension Measurement {    
     func truncateTemperature(measurement: Measurement<UnitTemperature>, unit:UnitTemperature) -> String {
         let formatter = MeasurementFormatter()
         formatter.numberFormatter.maximumFractionDigits = 0

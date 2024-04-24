@@ -31,6 +31,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var sunset: String = ""
     @Published var weeklyInfo:[WeatherInfo] = []
     @Published var hourlyInfo:[WeatherInfo] = []
+    @Published var weatherDescription: String = ""
         
     override init() {
         super.init()
@@ -77,6 +78,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             weather = try await WeatherService.shared.weather(for: location)
             if let weather = weather {
                 updateWeatherValues(weather: weather)
+                weatherDescription = weather.currentWeather.condition.description
             }
                         
         } catch {
@@ -97,9 +99,10 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                 let weeklyForecast = try await WeatherService.shared.weather(for: location, including: .hourly(startDate: startDate, endDate: endDate))
                 for hourly in weeklyForecast {
                     let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
-                    let info: WeatherInfo = WeatherInfo(temperature: hourlyTemp, time: hourly.date)
+                    let hourlyDate = hourly.date.truncateToHour(dateToFormat: hourly.date)
+                    let hourlyDay = hourly.date.truncateToDay(dateToFormat: hourly.date)
+                    let info: WeatherInfo = WeatherInfo(temperature: hourlyTemp, time: hourly.date, formattedTime: hourlyDate, formattedDay: hourlyDay, description: hourly.condition.description)
                     weeklyInfo.append(info)
-                    
                     if calendar.isDateInToday(info.time) {
                         hourlyInfo.append(info)
                     }
