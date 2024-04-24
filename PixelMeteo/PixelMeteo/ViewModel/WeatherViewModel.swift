@@ -32,6 +32,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var weeklyInfo:[WeatherInfo] = []
     @Published var hourlyInfo:[WeatherInfo] = []
     @Published var weatherDescription: String = ""
+    @Published var symbolName: String = ""
         
     override init() {
         super.init()
@@ -79,6 +80,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             if let weather = weather {
                 updateWeatherValues(weather: weather)
                 weatherDescription = weather.currentWeather.condition.description
+                symbolName = weather.currentWeather.symbolName
             }
                         
         } catch {

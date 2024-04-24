@@ -23,17 +23,18 @@ struct ContentView: View {
                         .font(.headlineMedium)
                 }
             }
-            LocationButton {
-                 weatherViewModel.requestLocation()
-             }
-            .font(.headlineSmall)
-            .foregroundColor(Color("ForegroundColor"))
             Spacer()
             VStack(alignment: .trailing, spacing: 0) {
-                Label(weatherViewModel.weatherDescription, image: "sunrise")
+                LocationButton {
+                     weatherViewModel.requestLocation()
+                 }
+                .symbolVariant(.fill)
+                .labelStyle(.iconOnly)
+                .foregroundColor(Color("ForegroundColor"))
+                .font(.headlineSmall)
+                .padding(.trailing, 5)
+                Label(weatherViewModel.weatherDescription, systemImage: weatherViewModel.symbolName)
                     .font(.mainHeadlineLarge)
-                Text("")
-                    .font(.headlineSmall)
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)
@@ -118,13 +119,12 @@ struct ContentView: View {
                 List {
                     ForEach(weatherViewModel.weeklyInfo) { hourForecast in
                         HStack {
-                            Image("sunrise")
                             Text("\(hourForecast.formattedDay)")
                             Spacer()
                             Text("\(hourForecast.description)")
                             Text("\(hourForecast.temperature)")
                         }
-                        .font(.headlineLarge)
+                        .font(.mainHeadlineXSmall)
                     }
                     .listRowBackground(Color.clear)
                 }
