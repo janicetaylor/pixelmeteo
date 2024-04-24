@@ -27,13 +27,13 @@ struct ContentView: View {
                  weatherViewModel.requestLocation()
              }
             .font(.headlineSmall)
-            .foregroundColor(Color.white)
+            .foregroundColor(Color("ForegroundColor"))
             Spacer()
             VStack(alignment: .trailing, spacing: 0) {
-                Label(weatherViewModel.currentTemperature, image: "sunrise")
+                Label(weatherViewModel.weatherDescription, image: "sunrise")
                     .font(.mainHeadlineLarge)
-                Text(weatherViewModel.weatherDescription)
-                    .font(.headlineMedium)
+                Text("")
+                    .font(.headlineSmall)
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)
@@ -60,10 +60,11 @@ struct ContentView: View {
         .padding(.top, 5)
     }
     
-    var MainHeader: some View {
+    var DayInfoHeader: some View {
         VStack {
             HStack {
                 Label("\(weatherViewModel.snowfallAmount)", image: "snow")
+                Spacer()
                 Label("\(weatherViewModel.sunrise)", image: "sunrise")
                 Label("\(weatherViewModel.sunset)", image: "sunset")
             }
@@ -154,6 +155,7 @@ struct ContentView: View {
                     }
                 MiddleHeader
                 MainTemperatureView
+                DayInfoHeader
                 DailySummaryView
                 Spacer()
                 HourlyView
