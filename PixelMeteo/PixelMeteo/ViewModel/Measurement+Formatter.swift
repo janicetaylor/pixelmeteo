@@ -12,8 +12,8 @@ extension Measurement {
         let formatter = MeasurementFormatter()
         formatter.numberFormatter.maximumFractionDigits = 0
         let converted = measurement.converted(to: unit)
-        let output = formatter.string(from: converted)
+        var output = formatter.string(from: converted)
+        output = String(output.dropLast(2))
         return output
     }
-    
 }
