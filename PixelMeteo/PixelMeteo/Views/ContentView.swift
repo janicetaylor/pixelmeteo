@@ -39,7 +39,7 @@ struct ContentView: View {
                     ForEach(weatherViewModel.weeklyInfo) { hourForecast in
                         VStack(alignment: .center, spacing: 0) {
                             Text("\(hourForecast.formattedDay)")
-                                .font(.hxeadlineSmall)
+                                .font(.headlineSmall)
                             Image("sunrise")
                             Text("\(hourForecast.temperature)")
                                 .font(.mainHeadlineMedium)

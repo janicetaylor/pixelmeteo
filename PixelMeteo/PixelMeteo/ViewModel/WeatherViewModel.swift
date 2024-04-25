@@ -37,16 +37,26 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     override init() {
         super.init()
         manager.delegate = self
+        checkCustomFonts()
     }
     
     func requestLocation() {
         manager.requestLocation()
     }
     
+    func checkCustomFonts() {
+        for family in UIFont.familyNames {
+        print(family)
+            for names in UIFont.fontNames(forFamilyName:family) {
+                print("== \(names)")
+            }
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])  {
         locationCoordinate = locations.first?.coordinate
         location = locations.first
-        print("location: \(location), \(location!.coordinate.latitude), \(location!.coordinate.longitude)")
+        // print("location: \(location), \(location!.coordinate.latitude), \(location!.coordinate.longitude)")
         if let location = locations.first {
             getPlace(from: location)
         } else {
