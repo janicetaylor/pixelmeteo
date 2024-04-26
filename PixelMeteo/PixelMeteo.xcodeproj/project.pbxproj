@@ -25,6 +25,7 @@
 		117E3D712BC6E449001ED05A /* PixelMeteoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D702BC6E449001ED05A /* PixelMeteoTests.swift */; };
 		117E3D7B2BC6E449001ED05A /* PixelMeteoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */; };
 		117E3D7D2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */; };
+		118514592BDC0B2D00047A08 /* DailyWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118514582BDC0B2D00047A08 /* DailyWeatherInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		117E3D762BC6E449001ED05A /* PixelMeteoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelMeteoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITests.swift; sourceTree = "<group>"; };
 		117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		118514582BDC0B2D00047A08 /* DailyWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				11297B372BC8450A00AC2D17 /* WeatherModel.swift */,
 				115B1CE12BD831E200791023 /* WeatherInfo.swift */,
+				118514582BDC0B2D00047A08 /* DailyWeatherInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				117E3D622BC6E448001ED05A /* ContentView.swift in Sources */,
 				115B1CE22BD831E200791023 /* WeatherInfo.swift in Sources */,
 				11297B382BC8450A00AC2D17 /* WeatherModel.swift in Sources */,
+				118514592BDC0B2D00047A08 /* DailyWeatherInfo.swift in Sources */,
 				1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */,
 				115B1CE62BD8905D00791023 /* Date+Formatter.swift in Sources */,
 				117E3D602BC6E448001ED05A /* PixelMeteoApp.swift in Sources */,

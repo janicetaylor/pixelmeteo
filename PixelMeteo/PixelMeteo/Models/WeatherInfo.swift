@@ -10,6 +10,8 @@ import Foundation
 struct WeatherInfo: Identifiable {
     var id = UUID()
     var temperature: String 
+    var high: String
+    var low: String
     var time: Date
     var formattedTime: String // 8pm
     var formattedDay: String // Mon 

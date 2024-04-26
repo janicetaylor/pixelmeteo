@@ -35,17 +35,20 @@ struct ContentView: View {
             Text(weatherViewModel.weatherDescription)
                 .font(.mainHeadlineLarge)
             ScrollView(.horizontal) {
-                LazyHStack {
-                    ForEach(weatherViewModel.weeklyInfo) { hourForecast in
+                LazyHStack(spacing: 20) {
+                    ForEach(weatherViewModel.dailyWeatherInfo) { daily in
                         VStack(alignment: .center, spacing: 0) {
-                            Text("\(hourForecast.formattedDay)")
-                                .font(.headlineSmall)
-                            Image("sunrise")
-                            Text("\(hourForecast.temperature)")
+                            Text("\(daily.day)")
                                 .font(.mainHeadlineMedium)
+                            Image("sunrise")
+                            Text("\(daily.tempRange)")
+                                .font(.mainHeadlineMedium)
+                            Text("\(daily.description)")
+                                .font(.headlineSmall)
                         }
                     }
                 }
+                .fixedSize()
             }
         }
     }
@@ -67,7 +70,7 @@ struct ContentView: View {
                     TopHeader
                         .task {
                             await weatherViewModel.getCurrentWeather()
-                            await weatherViewModel.getWeeklyWeather()
+                            await weatherViewModel.getDailyWeather()
                         }
                    MainTemperatureView
                    WeeklyView

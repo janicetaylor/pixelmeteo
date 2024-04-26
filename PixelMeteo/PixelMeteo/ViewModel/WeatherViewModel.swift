@@ -21,6 +21,9 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     @Published var weather: Weather?
     @Published var currentTemperature: String = ""
+    
+    @Published var dailyWeatherInfo:[DailyWeatherInfo] = []
+    
     @Published var feelsLikeTemperature: String = ""
     @Published var high: String = ""
     @Published var low: String = ""
@@ -33,11 +36,11 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var hourlyInfo:[WeatherInfo] = []
     @Published var weatherDescription: String = ""
     @Published var symbolName: String = ""
+    
         
     override init() {
         super.init()
         manager.delegate = self
-        checkCustomFonts()
     }
     
     func requestLocation() {
@@ -100,31 +103,48 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     // refactor 
     
-    @MainActor
-    func getWeeklyWeather() async {
+    @MainActor 
+    func getDailyWeather() async {
         do {
             let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
-            let calendar = Calendar.current
-            let formatter = DateFormatter()
-            let startDate = Date()
-            if let endDate = calendar.date(byAdding: .day, value: 7, to: startDate) {
-                let weeklyForecast = try await WeatherService.shared.weather(for: location, including: .hourly(startDate: startDate, endDate: endDate))
-                for hourly in weeklyForecast {
-                    let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
-                    let hourlyDate = hourly.date.truncateToHour(dateToFormat: hourly.date)
-                    let hourlyDay = hourly.date.truncateToDay(dateToFormat: hourly.date)
-                    let info: WeatherInfo = WeatherInfo(temperature: hourlyTemp, time: hourly.date, formattedTime: hourlyDate, formattedDay: hourlyDay, description: hourly.condition.description)
-                    weeklyInfo.append(info)
-                    if calendar.isDateInToday(info.time) {
-                        hourlyInfo.append(info)
-                    }
-                    print(hourlyInfo)
-                }
+            let dailyForecast = try await WeatherService.shared.weather(for: location, including: .daily)
+            for daily in dailyForecast {
+                let dailyLow = daily.lowTemperature.truncateTemperature(measurement: daily.lowTemperature, unit: .fahrenheit)
+                let dailyHigh = daily.highTemperature.truncateTemperature(measurement: daily.highTemperature, unit: .fahrenheit)
+                let dailyDate = daily.date.truncateToDay(dateToFormat: daily.date)
+                let info: DailyWeatherInfo = DailyWeatherInfo(tempRange: "\(dailyLow)-\(dailyHigh)", day: dailyDate, description: daily.condition.description)
+                dailyWeatherInfo.append(info)
             }
         } catch {
             fatalError("can't get weekly weather")
         }
     }
+    
+//    @MainActor
+//    func getHourlyWeather() async {
+//        do {
+//            let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
+//            let calendar = Calendar.current
+//            let formatter = DateFormatter()
+//            let startDate = Date()
+//            if let endDate = calendar.date(byAdding: .day, value: 7, to: startDate) {
+//                let weeklyForecast = try await WeatherService.shared.weather(for: location, including: .hourly(startDate: startDate, endDate: endDate))
+//                for hourly in weeklyForecast {
+//                    let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
+//                    let hourlyDate = hourly.date.truncateToHour(dateToFormat: hourly.date)
+//                    let hourlyDay = hourly.date.truncateToDay(dateToFormat: hourly.date)
+//                    let info: WeatherInfo = WeatherInfo(temperature: hourlyTemp, time: hourly.date, formattedTime: hourlyDate, formattedDay: hourlyDay, description: hourly.condition.description)
+//                    weeklyInfo.append(info)
+//                    if calendar.isDateInToday(info.time) {
+//                        hourlyInfo.append(info)
+//                    }
+//                    print(hourlyInfo)
+//                }
+//            }
+//        } catch {
+//            fatalError("can't get weekly weather")
+//        }
+//    }
     
     func updateWeatherValues(weather: Weather) {
         let temp = weather.currentWeather.temperature
@@ -154,8 +174,6 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
         } else {
             fatalError("can't get daily sun events")
         }
-        
-        
         
     }
     

@@ -18,11 +18,13 @@ extension Date {
     
     func truncateToDay(dateToFormat: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE ha"
+        formatter.dateFormat = "EEE"
         formatter.timeZone = TimeZone.current
         let formatted = formatter.string(from: dateToFormat)
         return formatted
     }
+    
+    
 }
 
 
