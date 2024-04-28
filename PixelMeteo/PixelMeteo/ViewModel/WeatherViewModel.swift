@@ -28,8 +28,9 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var high: String = ""
     @Published var low: String = ""
     @Published var humidity: Int = 0
+    @Published var chanceOfRain: Int = 0
+    @Published var precipitationDescription: String = ""
     @Published var snowfallAmount: String = ""
-    @Published var precipitationChance: Int = 0
     @Published var sunrise: String = ""
     @Published var sunset: String = ""
     @Published var weeklyInfo:[WeatherInfo] = []
@@ -69,7 +70,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        fatalError("unable to get location: \(error)")
+        fatalError("unable to get location \(error)")
     }
     
     func getPlace(from location: CLLocation) {
@@ -100,9 +101,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             fatalError("can't get current weather")
         }
     }
-    
-    // refactor 
-    
+        
     @MainActor 
     func getDailyWeather() async {
         do {
@@ -120,32 +119,6 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
         }
     }
     
-//    @MainActor
-//    func getHourlyWeather() async {
-//        do {
-//            let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
-//            let calendar = Calendar.current
-//            let formatter = DateFormatter()
-//            let startDate = Date()
-//            if let endDate = calendar.date(byAdding: .day, value: 7, to: startDate) {
-//                let weeklyForecast = try await WeatherService.shared.weather(for: location, including: .hourly(startDate: startDate, endDate: endDate))
-//                for hourly in weeklyForecast {
-//                    let hourlyTemp = hourly.temperature.truncateTemperature(measurement: hourly.temperature, unit: .fahrenheit)
-//                    let hourlyDate = hourly.date.truncateToHour(dateToFormat: hourly.date)
-//                    let hourlyDay = hourly.date.truncateToDay(dateToFormat: hourly.date)
-//                    let info: WeatherInfo = WeatherInfo(temperature: hourlyTemp, time: hourly.date, formattedTime: hourlyDate, formattedDay: hourlyDay, description: hourly.condition.description)
-//                    weeklyInfo.append(info)
-//                    if calendar.isDateInToday(info.time) {
-//                        hourlyInfo.append(info)
-//                    }
-//                    print(hourlyInfo)
-//                }
-//            }
-//        } catch {
-//            fatalError("can't get weekly weather")
-//        }
-//    }
-    
     func updateWeatherValues(weather: Weather) {
         let temp = weather.currentWeather.temperature
         currentTemperature = temp.truncateTemperature(measurement: temp, unit: .fahrenheit)
@@ -161,7 +134,8 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             let lowTemp = dailyForecast.lowTemperature
             low = lowTemp.truncateTemperature(measurement: lowTemp, unit: .fahrenheit)
             
-            precipitationChance = Int(dailyForecast.precipitationChance)
+            chanceOfRain = Int(dailyForecast.precipitationChance)
+            precipitationDescription = dailyForecast.precipitation.description
             snowfallAmount = dailyForecast.snowfallAmount.formatted()
             
         } else {

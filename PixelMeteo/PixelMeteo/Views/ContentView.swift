@@ -14,7 +14,7 @@ struct ContentView: View {
     @ObservedObject var weatherViewModel = WeatherViewModel()
     
     var TopHeader: some View {
-        HStack() {
+        HStack(spacing: 0) {
             Button(action: { }) {
                 Image("hamburger-menu")
             }
@@ -27,6 +27,28 @@ struct ContentView: View {
             }
             .labelStyle(.iconOnly)
         }
+        .frame(maxHeight: .infinity, alignment: .top)
+    }
+    
+    var DetailView: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading) {
+                Text("Rain: \(weatherViewModel.chanceOfRain)%")
+            }
+            Spacer()
+            VStack(alignment: .leading) {
+                Text("Temperature: \(weatherViewModel.currentTemperature)")
+                Text("Feels like: \(weatherViewModel.feelsLikeTemperature)")
+                Text("High: \(weatherViewModel.high)")
+                Text("Low: \(weatherViewModel.low)")
+            }
+            Spacer()
+            VStack(alignment: .leading) {
+                Text("Sunrise: \(weatherViewModel.sunrise)")
+                Text("Sunset: \(weatherViewModel.sunset)")
+            }
+        }
+        .font(.headlineSmall)
         .frame(maxWidth: .infinity, alignment: .top)
     }
     
@@ -51,6 +73,7 @@ struct ContentView: View {
                 .fixedSize()
             }
         }
+        .frame(maxWidth: .infinity, alignment: .center)
     }
     
     var MainTemperatureView: some View {
@@ -67,12 +90,14 @@ struct ContentView: View {
                 .fill(Color("BackgroundColor"))
                 .ignoresSafeArea()
             VStack(spacing: 0) {
-                    TopHeader
+                   TopHeader
                         .task {
                             await weatherViewModel.getCurrentWeather()
                             await weatherViewModel.getDailyWeather()
                         }
+                   DetailView
                    MainTemperatureView
+                   Spacer()
                    WeeklyView
             }
             .foregroundColor(Color("ForegroundColor"))
