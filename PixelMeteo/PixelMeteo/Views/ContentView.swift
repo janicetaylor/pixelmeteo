@@ -12,6 +12,7 @@ import CoreLocationUI
 struct ContentView: View {
 
     @ObservedObject var weatherViewModel = WeatherViewModel()
+    @StateObject var locationManager = LocationManager()
     
     var TopHeader: some View {
         HStack(spacing: 0) {
@@ -19,11 +20,13 @@ struct ContentView: View {
                 Image("hamburger-menu")
             }
             Spacer()
-            Text("\(weatherViewModel.cityDetail), \(weatherViewModel.city)")
-                .font(.headlineSmall)
-            Spacer()
+         
+            if locationManager.authorizationStatus == .authorizedWhenInUse {
+                Text("\(locationManager.city), \(locationManager.cityDetail)")
+                    .font(.headlineSmall)
+            }
             LocationButton() {
-                weatherViewModel.requestLocation()
+                locationManager.requestLocation() 
             }
             .labelStyle(.iconOnly)
         }
@@ -92,7 +95,7 @@ struct ContentView: View {
             VStack(spacing: 0) {
                    TopHeader
                         .task {
-                            await weatherViewModel.getCurrentWeather()
+                            await weatherViewModel.getCurrentWeather(location: locationManager.location)
                             await weatherViewModel.getDailyWeather()
                         }
                    DetailView

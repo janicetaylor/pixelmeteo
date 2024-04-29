@@ -26,6 +26,7 @@
 		117E3D7B2BC6E449001ED05A /* PixelMeteoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */; };
 		117E3D7D2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */; };
 		118514592BDC0B2D00047A08 /* DailyWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118514582BDC0B2D00047A08 /* DailyWeatherInfo.swift */; };
+		11E1099C2BDF268600AC83D5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1099B2BDF268600AC83D5 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		117E3D7A2BC6E449001ED05A /* PixelMeteoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITests.swift; sourceTree = "<group>"; };
 		117E3D7C2BC6E449001ED05A /* PixelMeteoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMeteoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		118514582BDC0B2D00047A08 /* DailyWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherInfo.swift; sourceTree = "<group>"; };
+		11E1099B2BDF268600AC83D5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				1170369A2BD1B188004FB53E /* WeatherViewModel.swift */,
 				115B1CDF2BD8235600791023 /* Measurement+Formatter.swift */,
 				115B1CE52BD8905D00791023 /* Date+Formatter.swift */,
+				11E1099B2BDF268600AC83D5 /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				117E3D622BC6E448001ED05A /* ContentView.swift in Sources */,
 				115B1CE22BD831E200791023 /* WeatherInfo.swift in Sources */,
+				11E1099C2BDF268600AC83D5 /* LocationManager.swift in Sources */,
 				11297B382BC8450A00AC2D17 /* WeatherModel.swift in Sources */,
 				118514592BDC0B2D00047A08 /* DailyWeatherInfo.swift in Sources */,
 				1166A3512BC8735100ECAAC5 /* Font+Style.swift in Sources */,
@@ -512,6 +516,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PixelMeteo/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location data to tell you the weather.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -543,6 +548,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PixelMeteo/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location data to tell you the weather.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
