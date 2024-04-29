@@ -13,7 +13,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     let manager = CLLocationManager()
     @Published var authorizationStatus: CLAuthorizationStatus?
-        
+            
     @Published var locationCoordinate: CLLocationCoordinate2D?
     @Published var location: CLLocation = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
     @Published var city: String = ""
@@ -33,8 +33,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
             case .authorizedWhenInUse:
                 authorizationStatus = .authorizedWhenInUse
                 manager.requestLocation()
-                guard let location = manager.location else { return }
-                getPlace(from: location)
                 break
             case .restricted:
                 authorizationStatus = .restricted
@@ -45,7 +43,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
             case .notDetermined:
                 authorizationStatus = .notDetermined
                 manager.requestWhenInUseAuthorization()
-                manager.startUpdatingLocation()
                 break
             default:
                 break

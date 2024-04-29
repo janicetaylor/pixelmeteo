@@ -32,10 +32,7 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     override init() {
         super.init()
     }
-    
-    func requestLocation() {
-    }
-    
+        
     func checkCustomFonts() {
         for family in UIFont.familyNames {
         print(family)
@@ -48,7 +45,6 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @MainActor
     func getCurrentWeather(location: CLLocation) async {
         do {
-           // let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
             weather = try await WeatherService.shared.weather(for: location)
             print(location)
             if let weather = weather {
@@ -62,9 +58,8 @@ class WeatherViewModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
         
     @MainActor 
-    func getDailyWeather() async {
+    func getDailyWeather(location: CLLocation) async {
         do {
-            let location = CLLocation(latitude: 29.93383411, longitude: -90.08174409)
             let dailyForecast = try await WeatherService.shared.weather(for: location, including: .daily)
             for daily in dailyForecast {
                 let dailyLow = daily.lowTemperature.truncateTemperature(measurement: daily.lowTemperature, unit: .fahrenheit)

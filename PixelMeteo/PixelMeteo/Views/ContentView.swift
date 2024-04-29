@@ -24,7 +24,12 @@ struct ContentView: View {
             if locationManager.authorizationStatus == .authorizedWhenInUse {
                 Text("\(locationManager.city), \(locationManager.cityDetail)")
                     .font(.headlineSmall)
+                    .task {
+                        await weatherViewModel.getCurrentWeather(location: locationManager.location)
+                        await weatherViewModel.getDailyWeather(location: locationManager.location)
+                    }
             }
+            Spacer()
             LocationButton() {
                 locationManager.requestLocation() 
             }
@@ -94,10 +99,6 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack(spacing: 0) {
                    TopHeader
-                        .task {
-                            await weatherViewModel.getCurrentWeather(location: locationManager.location)
-                            await weatherViewModel.getDailyWeather()
-                        }
                    DetailView
                    MainTemperatureView
                    Spacer()
