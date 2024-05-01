@@ -20,7 +20,6 @@ struct ContentView: View {
                 Image("hamburger-menu")
             }
             Spacer()
-         
             if locationManager.authorizationStatus == .authorizedWhenInUse {
                 Text("\(locationManager.city), \(locationManager.cityDetail)")
                     .font(.headlineSmall)
@@ -36,6 +35,28 @@ struct ContentView: View {
             .labelStyle(.iconOnly)
         }
         .frame(maxHeight: .infinity, alignment: .top)
+        .padding(0)
+    }
+    
+    var TopCurrentHeaderView: some View {
+        HStack(alignment: .center, spacing: 0) {
+            Text("\(weatherViewModel.weatherDescription)")
+                .font(.mainHeadlineLarge)
+            Spacer()
+            Image("clear-icon-large")
+        }
+        .frame(maxHeight: .infinity, alignment: .top)
+        .padding(0)
+    }
+    
+    var TopRainView: some View {
+        HStack(alignment: .top, spacing: 0) {
+            Image("rain")
+            Text("\(weatherViewModel.chanceOfRain)% chance of rain")
+                .font(.headlineSmall)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(0)
     }
     
     var DetailView: some View {
@@ -62,8 +83,6 @@ struct ContentView: View {
     
     var WeeklyView: some View {
         VStack(alignment: .center, spacing: 0) {
-            Text(weatherViewModel.weatherDescription)
-                .font(.mainHeadlineLarge)
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 20) {
                     ForEach(weatherViewModel.dailyWeatherInfo) { daily in
@@ -99,9 +118,12 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack(spacing: 0) {
                    TopHeader
-                   DetailView
+                   TopCurrentHeaderView
+                   TopRainView
+                   Spacer()
                    MainTemperatureView
                    Spacer()
+                    .frame(maxHeight: .infinity, alignment: .center)
                    WeeklyView
             }
             .foregroundColor(Color("ForegroundColor"))
